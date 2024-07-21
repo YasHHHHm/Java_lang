@@ -1,0 +1,49 @@
+package day_16;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+
+public class Question_countwords implements ActionListener {
+	JLabel l, l1;
+	JTextArea Area;
+	JButton b;
+
+	Question_countwords() {
+		JFrame fr = new JFrame();
+		l = new JLabel();
+		l.setBounds(100, 25, 100, 30);
+		l1 = new JLabel();
+		l1.setBounds(210, 25, 100, 30);
+		Area = new JTextArea();
+		Area.setBounds(80, 75, 280, 200);
+		b = new JButton("Count Words");
+		b.setBounds(150, 300, 120, 30);
+		b.addActionListener(this);
+		fr.add(l);
+		fr.add(l1);
+		fr.add(b);
+		fr.add(Area);
+		fr.setSize(450, 450);
+		fr.setLayout(null);
+		fr.setVisible(true);
+
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		String text = Area.getText();
+		String words[] = text.split("\\s");
+		l.setText("Words: " + words.length);
+		l1.setText("Characters " + text.length());
+
+	}
+
+	public static void main(String[] args) {
+		new Question_countwords();
+	}
+}
+
